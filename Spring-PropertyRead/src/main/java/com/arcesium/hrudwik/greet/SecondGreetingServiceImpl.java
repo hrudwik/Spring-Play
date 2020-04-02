@@ -1,5 +1,6 @@
 package com.arcesium.hrudwik.greet;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Primary
 public class SecondGreetingServiceImpl implements GreetingService {
 
-    @Value("${name:world}")
+    @Autowired
     private String name;
 
     @Override
