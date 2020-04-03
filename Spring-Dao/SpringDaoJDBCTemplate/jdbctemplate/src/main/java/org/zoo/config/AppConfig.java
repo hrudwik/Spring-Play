@@ -1,5 +1,6 @@
 package org.zoo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +21,7 @@ public class AppConfig {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Bean
+    @Bean(name = "datasource_main")
     DataSource dataSource(@Value("${url}") String url, @Value("${dbuser}") String dbUsername,
                           @Value("${driver}") String driverClassName, @Value("${dbpassword}") String dbPassword) {
         // you would never use DriverManagerDataSource in production - this creates a connection for every attempt instead of using a connection pool.
