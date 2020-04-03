@@ -11,13 +11,20 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("classpath:database.properties")
 @ComponentScan(basePackages = "org.zoo")
+@PropertySource("classpath:database.properties")
 public class AppConfig {
 
     @Bean
-    public DataSource dataSource(@Value("${url}") String url, @Value("${driver}") String driverClassName,
-                                 @Value("${dbuser}") String dbUsername, @Value("dbpassword") String dbPassword) {
+    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean
+    DataSource dataSource(@Value("${url}") String url, @Value("${dbuser}") String dbUsername,
+                          @Value("${driver}") String driverClassName, @Value("${dbpassword}") String dbPassword) {
+        // you would never use DriverManagerDataSource in production - this creates a connection for every attempt instead of using a connection pool.
+        // Read more about how datasources maintain connection pool.
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setUrl(url);
         driverManagerDataSource.setUsername(dbUsername);
@@ -25,10 +32,4 @@ public class AppConfig {
         driverManagerDataSource.setDriverClassName(driverClassName);
         return driverManagerDataSource;
     }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
-
 }
