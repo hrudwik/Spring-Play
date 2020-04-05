@@ -1,3 +1,4 @@
 rootProject.name = 'SpringDaoJDBCTemplate'
 include 'jdbctemplate'
+include 'JDBCTransaction'
 

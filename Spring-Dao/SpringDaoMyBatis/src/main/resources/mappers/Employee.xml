@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "Employee">
+
+    <insert id = "insert" parameterType = "com.foo.domain.Employee">
+        INSERT INTO EMPLOYEE (id, first_name, last_name, level) VALUES (#{id}, #{firstName}, #{lastName}, #{level});
+    </insert>
+
+    <update id = "update" parameterType = "com.foo.domain.Employee">
+        UPDATE EMPLOYEE SET first_name = #{firstName}, last_name = #{lastName}, level = #{level} WHERE id = #{id};
+    </update>
+
+    <delete id = "delete" parameterType = "com.foo.domain.Employee">
+        DELETE FROM EMPLOYEE WHERE ID = #{id};
+    </delete>
+
+    <select id = "getById" parameterType = "int" resultMap = "result">
+        SELECT * FROM EMPLOYEE WHERE ID = #{id};
+    </select>
+
+    <select id = "getAllByLevel" parameterType="int" resultMap = "result">
+        SELECT * FROM EMPLOYEE WHERE LEVEL = #{level};
+    </select>
+
+    <resultMap id = "result" type = "com.foo.domain.Employee">
+        <result property = "id" column = "ID"/>
+        <result property = "firstName" column = "first_name"/>
+        <result property = "lastName" column = "last_name"/>
+        <result property = "level" column = "level"/>
+    </resultMap>
+</mapper>
