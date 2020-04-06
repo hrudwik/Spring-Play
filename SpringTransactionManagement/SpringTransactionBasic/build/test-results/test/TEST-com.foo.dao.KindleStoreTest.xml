@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.foo.dao.KindleStoreTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-06T10:11:53" hostname="Hrudwiks-MacBook-Pro.local" time="0.235">
+  <properties/>
+  <testcase name="testIfStockIsRolledBackForInsufficientBalances" classname="com.foo.dao.KindleStoreTest" time="0.235"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Apr 06, 2020 3:41:53 PM org.springframework.test.context.support.AbstractTestContextBootstrapper getDefaultTestExecutionListenerClassNames
+INFO: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+Apr 06, 2020 3:41:53 PM org.springframework.test.context.support.AbstractTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+Apr 06, 2020 3:41:53 PM org.springframework.test.context.support.AbstractTestContextBootstrapper getTestExecutionListeners
+INFO: Using TestExecutionListeners: [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@b3ad90d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@179c563c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1de2f50d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@a4210db]
+Apr 06, 2020 3:41:53 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.GenericApplicationContext@4541510e: startup date [Mon Apr 06 15:41:53 IST 2020]; root of context hierarchy
+Apr 06, 2020 3:41:53 PM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+INFO: Loaded JDBC driver: org.postgresql.Driver
+Apr 06, 2020 3:41:53 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+Apr 06, 2020 3:41:53 PM org.springframework.jdbc.support.SQLErrorCodesFactory <init>
+INFO: SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+]]></system-err>
+</testsuite>
