@@ -1,4 +1,0 @@
-rootProject.name = 'SpringTransactionManagement'
-include 'TransactionPropagation'
-include 'SpringTransactionBasic'
-

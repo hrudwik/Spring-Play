@@ -32,7 +32,7 @@ public class Application {
 
         retrived.setFirstName("LMN");
         employeeDao.update(retrived);
-        employeeDao.delete(retrived);
+        //employeeDao.delete(retrived);
 
 
         context.registerShutdownHook();

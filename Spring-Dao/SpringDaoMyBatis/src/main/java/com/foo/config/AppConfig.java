@@ -1,29 +1,29 @@
 package com.foo.config;
 
-import com.foo.domain.Employee;
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.Reader;
 
 @Configuration
 @ComponentScan(basePackages = "com.foo")
-@PropertySource("database.properties")
+@PropertySource("classpath:database.properties")
 public class AppConfig {
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
     @Bean
     public SqlSession sqlSession(@Value("${mybatis.configuration}") String myBatisConfigXMLLocation) {
         try {
@@ -37,11 +37,6 @@ public class AppConfig {
             System.out.println("Couldn't able to read mybatis configuration");
         }
         return null;
-    }
-
-    @Bean
-    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
     }
 
     /*@Bean
